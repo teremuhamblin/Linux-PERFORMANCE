@@ -25,8 +25,8 @@ chmod +x *.sh
 Lance simplement le script principal :
 
 `bash
-sudo ./1_mint-install.sh
-
+sudo ./3_mint-setup.sh
+`
 
 Tu pourras choisir, étape par étape :
 
