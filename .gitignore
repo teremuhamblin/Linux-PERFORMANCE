@@ -1,18 +1,102 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# ============================================
+# 1. JOURNAUX D’EXÉCUTION DU PROJET
+# --------------------------------------------
+# Tous les logs générés par les scripts (orchestrateur,
+# modules de performance, sécurité, desktop, etc.)
+# restent en local et ne sont pas versionnés.
+# Exemple : logs/mint-setup-20260331-231500.log
+# ============================================
+logs/
+*.log
 
-# Other files and folders
-.settings/
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# ============================================
+# 2. FICHIERS TEMPORAIRES / SAUVEGARDES
+# --------------------------------------------
+# Fichiers créés par les éditeurs, scripts ou outils
+# pendant l’édition, les tests ou les exécutions.
+# Rien de tout cela ne doit polluer l’historique Git.
+# ============================================
+*.tmp
+*.temp
+*.bak
+*.old
+*.swp
+*.swo
+*~
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+
+# ============================================
+# 3. CONFIGURATIONS LOCALES NON PARTAGÉES
+# --------------------------------------------
+# Tout ce qui est spécifique à TA machine ou à ton
+# environnement (secrets, overrides locaux, tests).
+# Le dossier config/ global reste versionné, mais
+# config/local/ est réservé aux variations privées.
+# ============================================
+config/local/
+.env
+.env.*
+
+
+# ============================================
+# 4. ÉDITEURS / IDE
+# --------------------------------------------
+# Métadonnées et dossiers propres aux outils de dev.
+# Ils ne font pas partie du projet en lui-même.
+# ============================================
+# VSCode
+.vscode/
+
+# JetBrains (IntelliJ, PyCharm, etc.)
+.idea/
+
+# Vim / Neovim
+*.swp
+*.swo
+*.vim
+
+
+# ============================================
+# 5. ARTEFACTS GÉNÉRÉS PAR LES SCRIPTS
+# --------------------------------------------
+# Si certains scripts de bin/ (ex: mint-perf.sh,
+# mint-sec.sh, mint-desktop.sh, etc.) génèrent des
+# fichiers temporaires, caches ou sorties techniques,
+# on les ignore ici.
+# Tu peux affiner au besoin (ex: reports/, tmp/…).
+# ============================================
+*.out
+*.pid
+*.cache
+*.generated
+
+# Exemple de dossier de travail interne aux scripts
+tmp/
+workdir/
+reports/
+
+
+# ============================================
+# 6. FICHIERS / ARTEFACTS SYSTÈME
+# --------------------------------------------
+# Fichiers créés par l’OS ou les gestionnaires de
+# fichiers (macOS, Windows, etc.).
+# ============================================
+.DS_Store
+Thumbs.db
+
+
+# ============================================
+# 7. ARCHIVES ET EXPORTS
+# --------------------------------------------
+# Archives créées pour des backups, exports ou
+# distributions (tar, zip, etc.).
+# Elles ne sont pas nécessaires dans Git.
+# ============================================
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+*.rar
