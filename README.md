@@ -7,21 +7,11 @@
 
 ### 📁 Structure du projet
 
-`
-mint-engineering/
-├─ bin/
-│  ├─ mint-setup.sh       # Script principal (orchestrateur)
-│  ├─ mint-perf.sh        # Optimisations de performance
-│  ├─ mint-sec.sh         # Durcissement de la sécurité
-│  ├─ mint-desktop.sh     # Réglages Cinnamon / UX
-│  └─ mint-tools.sh       # Fonctions communes (log, root check…)
-├─ config/
-│  ├─ sysctl.d/           # Paramètres noyau personnalisés
-│  ├─ ulimits/            # Limites système
-│  └─ cinnamon/           # Configurations dconf
-└─ logs/
-   └─ ...                 # Journaux d’exécution
-`
+mint-setup.sh       # Script principal
+mint-perf.sh   # Optimisations de performance
+mint-sec.sh    # Durcissement de la sécurité
+mint-desktop.sh     # Réglages Cinnamon / UX
+mint-tools.sh       # Fonctions communes (log, root check…)
 
 ---
 
@@ -32,7 +22,7 @@ Clone le dépôt :
 `bash
 git clone https://github.com/ton-projet/mint-engineering.git
 cd mint-engineering/bin
-`
+
 
 Rends les scripts exécutables :
 
