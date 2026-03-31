@@ -5,25 +5,6 @@
 
 ---
 
-### 📁 Structure du projet
-
-> `mint-setup.sh`       
-- Script principal
-
-> `mint-perf.sh`
-- Optimisations de performance
-
-> `mint-sec.sh`
-- Furcissement de la sécurité
-
-> `mint-desktop.sh`
-- Réglages Cinnamon / UX
-
-> `mint-tools.sh`
-- Fonctions communes (log, root check…)
-
----
-
 ### 🚀 Installation
 
 Clone le dépôt :
@@ -44,8 +25,8 @@ chmod +x *.sh
 Lance simplement le script principal :
 
 `bash
-sudo ./mint-setup.sh
-`
+sudo ./1_mint-install.sh
+
 
 Tu pourras choisir, étape par étape :
 
@@ -60,7 +41,7 @@ Chaque action est journalisée dans le dossier logs/.
 
 ### 🧩 Modules
 
-🔧 Performance (mint-perf.sh)
+### 🔧 Performance (mint-perf.sh)
 - Nettoyage système  
 - Réglages du noyau (swappiness, zswap…)  
 - Désactivation de services inutiles  
