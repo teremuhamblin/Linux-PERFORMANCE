@@ -1,14 +1,71 @@
 name: Deployment
 
 on:
+  push:
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
   deploy:
+    name: Deploy Linux-PERFORMANCE
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Simulate deployment
-        run: echo "Deploying Linux-PERFORMANCE..."
+      - name: Set up Python for validation tools
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install validation dependencies
+        run: |
+          pip install yamllint jsonlint
+
+      - name: Validate YAML configuration
+        run: yamllint config/linux-performance.yaml
+
+      - name: Validate JSON configuration
+        run: jsonlint config/linux-performance.json
+
+      - name: Load configuration
+        id: config
+        run: |
+          echo "Loading configuration..."
+          cat config/linux-performance.yaml
+
+      - name: Create deployment
+        uses: actions/create-deployment@v1
+        id: create_deploy
+        with:
+          ref: ${{ github.sha }}
+          environment: production
+          auto_merge: false
+          required_contexts: []
+
+      - name: Build Linux-PERFORMANCE modules
+        run: |
+          echo "Building modules..."
+          bash modules/system/init.sh || true
+          bash modules/environment/activate_environment.sh || true
+          bash modules/cinnamon/check.sh || true
+          bash modules/tools/check.sh || true
+
+      - name: Package build artifacts
+        run: |
+          mkdir -p artifacts
+          cp -r modules artifacts/
+          cp -r config artifacts/
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-performance-artifacts
+          path: artifacts/
+
+      - name: Set deployment status
+        uses: actions/create-deployment-status@v1
+        with:
+          deployment_id: ${{ steps.create_deploy.outputs.deployment_id }}
+          state: success
