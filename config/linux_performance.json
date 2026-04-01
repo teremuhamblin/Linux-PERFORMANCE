@@ -1,0 +1,81 @@
+{
+  "linux-performance": {
+    "system": {
+      "name": "linux-performance",
+      "version": "1.0",
+      "kernel": {
+        "scheduler": "performance",
+        "swappiness": 10,
+        "dirty_ratio": 5,
+        "dirty_bg_ratio": 2
+      },
+      "services": {
+        "disable": ["bluetooth", "cups", "avahi-daemon"],
+        "enable": ["cron", "systemd-timesyncd"]
+      },
+      "logging": {
+        "level": "INFO",
+        "path": "/var/log/linux-performance"
+      }
+    },
+
+    "environment": {
+      "name": "performance-core",
+      "version": "1.0",
+      "paths": {
+        "home": "/opt/performance",
+        "bin": "/opt/performance/bin",
+        "lib": "/opt/performance/lib"
+      },
+      "variables": {
+        "PERFORMANCE_MODE": "true",
+        "PERFORMANCE_LOG": "/var/log/linux-performance/environment.log"
+      }
+    },
+
+    "cinnamon": {
+      "theme": "Mint-Y-Dark",
+      "icons": "Mint-Y-Dark",
+      "cursor": "DMZ-White",
+      "applets": [
+        "cpu-monitor@cinnamon.org",
+        "network@cinnamon.org",
+        "calendar@cinnamon.org"
+      ],
+      "desklets": ["clock@cinnamon.org"],
+      "extensions": ["transparent-panels@linux-performance"]
+    },
+
+    "project": {
+      "name": "Linux-PERFORMANCE",
+      "version": "1.0-RC",
+      "maintainer": "Teremu",
+      "license": "MIT",
+      "documentation": [
+        "CITATION.cff",
+        "RESEARCH.md",
+        "REPRODUCIBILITY.md",
+        "DATA_POLICY.md",
+        "ARCHITECTURE.md",
+        "CHANGELOG.md",
+        "ROADMAP.md"
+      ],
+      "modules": ["system", "environment", "performance", "cinnamon", "tools"]
+    },
+
+    "logging": {
+      "root": "/var/log/linux-performance",
+      "modules": {
+        "system": "system.log",
+        "environment": "environment.log",
+        "cinnamon": "cinnamon.log",
+        "tools": "tools.log"
+      },
+      "rotation": {
+        "frequency": "weekly",
+        "max_size": "10M"
+      },
+      "format": "[%Y-%m-%d %H:%M:%S] [LEVEL] MESSAGE"
+    }
+  }
+}
