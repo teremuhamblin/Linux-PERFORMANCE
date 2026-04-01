@@ -1,0 +1,32 @@
+###############################################################################
+# .gitattributes — Linux PERFORMANCE
+# Normalisation des fins de ligne, détection des types de fichiers,
+# et amélioration de la lisibilité des diffs.
+###############################################################################
+
+# Normalisation des fins de ligne pour tous les fichiers texte
+* text=auto eol=lf
+
+# Scripts shell : coloration et diff amélioré
+*.sh text eol=lf linguist-language=Shell
+
+# Markdown : toujours LF
+*.md text eol=lf
+
+# Fichiers de configuration
+*.conf text eol=lf
+
+# Empêcher Git de traiter les binaires comme du texte
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.7z binary
+
+# Protéger les fichiers sensibles (si jamais ajoutés par erreur)
+*.key binary
+*.pem binary
+*.crt binary
