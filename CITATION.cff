@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use Linux-PERFORMANCE in your research, please cite it using the following metadata."
+title: "Linux-PERFORMANCE: A Modular Framework for Automated Optimization, Hardening and Engineering-Grade Setup of Linux Mint"
+abstract: >
+  Linux-PERFORMANCE is an engineering-focused automation framework designed to
+  install, configure, optimize, and secure Linux Mint systems in a reproducible,
+  modular, and scientifically transparent way. It provides structured pipelines,
+  performance modules, security hardening, and documentation suitable for
+  research, reproducibility studies, and engineering workflows.
+
+authors:
+  - family-names: "Hamblin"
+    given-names: "Teremu"
+    affiliation: "Independent Researcher & Systems Engineer"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+
+version: "1.0.0"
+date-released: "2026-04-01"
+
+repository-code: "https://github.com/teremuhamblin/Linux-PERFORMANCE"
+url: "https://github.com/teremuhamblin/Linux-PERFORMANCE"
+
+keywords:
+  - Linux
+  - Linux Mint
+  - Performance Engineering
+  - System Optimization
+  - System Hardening
+  - Automation
+  - Reproducibility
+  - Scientific Computing
+  - Engineering Workflows
+  - Bash Scripting
+
+license: "MIT"
+
+preferred-citation:
+  type: software
+  authors:
+    - family-names: "Hamblin"
+      given-names: "Teremu"
+  title: "Linux-PERFORMANCE"
+  version: "1.0.0"
+  doi: "10.0000/placeholder-doi"
+  url: "https://github.com/teremuhamblin/Linux-PERFORMANCE"
