@@ -1,0 +1,6 @@
+logs/
+tmp/
+workdir/
+reports/
+config/local/
+docs/private/
