@@ -1,0 +1,18 @@
+# CODEOWNERS — Linux PERFORMANCE
+# Ce fichier définit les responsables des différentes parties du projet.
+# Toute modification dans les chemins listés doit être approuvée par les owners.
+
+# Mainteneur principal du projet
+*       @teremuhamblin
+
+# Scripts d'installation, optimisation, sécurité, desktop
+scripts/    @teremuhamblin
+
+# Documentation technique
+docs/       @teremuhamblin
+
+# Configuration globale
+config/     @teremuhamblin
+
+# Templates GitHub
+.github/    @teremuhamblin
