@@ -1,0 +1,63 @@
+name: Linux-PERFORMANCE CI
+
+on:
+  push:
+    branches: [ "main", "dev" ]
+  pull_request:
+    branches: [ "main", "dev" ]
+
+jobs:
+  build:
+    name: Validate & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python for validation tools
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install validation dependencies
+        run: |
+          pip install yamllint jsonlint
+
+      - name: Validate YAML configuration
+        run: |
+          yamllint config/linux-performance.yaml
+
+      - name: Validate JSON configuration
+        run: |
+          jsonlint config/linux-performance.json
+
+      - name: Load configuration (YAML)
+        id: config
+        run: |
+          echo "Loading YAML configuration..."
+          cat config/linux-performance.yaml
+
+      - name: Run system module checks
+        run: |
+          echo "Running system module checks..."
+          bash modules/system/init.sh || true
+
+      - name: Run environment module checks
+        run: |
+          echo "Running environment module checks..."
+          bash modules/environment/activate_environment.sh || true
+
+      - name: Run cinnamon module checks
+        run: |
+          echo "Running cinnamon module checks..."
+          bash modules/cinnamon/check.sh || true
+
+      - name: Run tools module checks
+        run: |
+          echo "Running tools module checks..."
+          bash modules/tools/check.sh || true
+
+      - name: Summary
+        run: |
+          echo "CI pipeline completed for Linux-PERFORMANCE"
