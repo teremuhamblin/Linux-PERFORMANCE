@@ -1,0 +1,18 @@
+# FUNDING.yml pour Linux-PERFORMANCE
+# Basé sur les sources officielles de personnalisation Linux Mint Cinnamon :
+# - Cinnamon Spices (site officiel Linux Mint)
+# - Guides de personnalisation reconnus (It's FOSS, How-To Geek)
+# - Communauté Linux Mint (Reddit)
+
+github: [null]                 # GitHub Sponsors si activé
+open_collective: null
+liberapay: null
+ko_fi: null
+buy_me_a_coffee: null
+
+# Plateformes de soutien pour projets open-source liés à la personnalisation Linux
+custom:
+  - "https://cinnamon-spices.linuxmint.com"        # Source officielle Linux Mint
+  - "https://itsfoss.com/customize-cinnamon"       # Guide de personnalisation
+  - "https://www.howtogeek.com"                    # Tweaks Cinnamon
+  - "https://reddit.com/r/linuxmint"               # Communauté Mint
