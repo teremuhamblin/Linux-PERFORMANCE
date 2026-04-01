@@ -1,0 +1,10 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: Documentation Linux PERFORMANCE
+    url: https://github.com/teremuhamblin/Linux-PERFORMANCE/docs
+    about: Consultez la documentation avant d’ouvrir une issue.
+
+  - name: Discussions générales
+    url: https://github.com/teremuhamblin/Linux-PERFORMANCE/discussions
+    about: Pour les questions, idées ou échanges non techniques.
