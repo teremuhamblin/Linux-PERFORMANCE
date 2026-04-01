@@ -1,22 +1,43 @@
-# ============================================
+###############################################################################
+# .gitignore — Projet Linux PERFORMANCE
+# -------------------------------------
+# Ce fichier définit précisément ce qui NE doit PAS être versionné dans Git.
+# Il protège le dépôt contre :
+#   - les journaux d’exécution
+#   - les fichiers temporaires
+#   - les configurations locales
+#   - les artefacts générés par les scripts
+#   - les fichiers système inutiles
+#
+# Chaque section est documentée pour faciliter la maintenance du projet.
+###############################################################################
+
+
+# =============================================================================
 # 1. JOURNAUX D’EXÉCUTION DU PROJET
-# --------------------------------------------
-# Tous les logs générés par les scripts (orchestrateur,
-# modules de performance, sécurité, desktop, etc.)
-# restent en local et ne sont pas versionnés.
-# Exemple : logs/mint-setup-20260331-231500.log
-# ============================================
+# -----------------------------------------------------------------------------
+# Tous les logs générés par les scripts (install, tools, setup, perf, sec,
+# desktop, orchestrateur, etc.) doivent rester en local.
+# Ils changent à chaque exécution et n’ont aucune valeur dans Git.
+#
+# Exemple :
+#   logs/mint-setup-20260331-231500.log
+# =============================================================================
 logs/
 *.log
 
 
-# ============================================
+
+# =============================================================================
 # 2. FICHIERS TEMPORAIRES / SAUVEGARDES
-# --------------------------------------------
-# Fichiers créés par les éditeurs, scripts ou outils
-# pendant l’édition, les tests ou les exécutions.
-# Rien de tout cela ne doit polluer l’historique Git.
-# ============================================
+# -----------------------------------------------------------------------------
+# Fichiers créés automatiquement par :
+#   - les éditeurs (Vim, Nano, VSCode…)
+#   - les scripts shell
+#   - les outils système
+#
+# Ils ne doivent jamais polluer l’historique Git.
+# =============================================================================
 *.tmp
 *.temp
 *.bak
@@ -26,25 +47,31 @@ logs/
 *~
 
 
-# ============================================
+
+# =============================================================================
 # 3. CONFIGURATIONS LOCALES NON PARTAGÉES
-# --------------------------------------------
-# Tout ce qui est spécifique à TA machine ou à ton
-# environnement (secrets, overrides locaux, tests).
-# Le dossier config/ global reste versionné, mais
-# config/local/ est réservé aux variations privées.
-# ============================================
+# -----------------------------------------------------------------------------
+# Tout ce qui est spécifique à TA machine :
+#   - secrets
+#   - overrides locaux
+#   - tests personnels
+#
+# Le dossier config/ global reste versionné,
+# mais config/local/ est réservé aux variations privées.
+# =============================================================================
 config/local/
 .env
 .env.*
 
 
-# ============================================
+
+# =============================================================================
 # 4. ÉDITEURS / IDE
-# --------------------------------------------
-# Métadonnées et dossiers propres aux outils de dev.
-# Ils ne font pas partie du projet en lui-même.
-# ============================================
+# -----------------------------------------------------------------------------
+# Métadonnées et dossiers propres aux outils de développement.
+# Ils ne font pas partie du projet et ne doivent jamais être commités.
+# =============================================================================
+
 # VSCode
 .vscode/
 
@@ -57,43 +84,47 @@ config/local/
 *.vim
 
 
-# ============================================
+
+# =============================================================================
 # 5. ARTEFACTS GÉNÉRÉS PAR LES SCRIPTS
-# --------------------------------------------
-# Si certains scripts de bin/ (ex: mint-perf.sh,
-# mint-sec.sh, mint-desktop.sh, etc.) génèrent des
-# fichiers temporaires, caches ou sorties techniques,
-# on les ignore ici.
-# Tu peux affiner au besoin (ex: reports/, tmp/…).
-# ============================================
+# -----------------------------------------------------------------------------
+# Certains scripts (perf, sec, desktop, setup…) peuvent générer :
+#   - fichiers temporaires
+#   - caches
+#   - PID
+#   - sorties techniques
+#
+# Ces fichiers sont propres à l’exécution locale.
+# =============================================================================
 *.out
 *.pid
 *.cache
 *.generated
 
-# Exemple de dossier de travail interne aux scripts
+# Dossiers internes utilisés par certains scripts
 tmp/
 workdir/
 reports/
 
 
-# ============================================
+
+# =============================================================================
 # 6. FICHIERS / ARTEFACTS SYSTÈME
-# --------------------------------------------
-# Fichiers créés par l’OS ou les gestionnaires de
-# fichiers (macOS, Windows, etc.).
-# ============================================
+# -----------------------------------------------------------------------------
+# Fichiers créés automatiquement par l’OS ou les gestionnaires de fichiers.
+# Ils n’ont rien à faire dans un dépôt Git.
+# =============================================================================
 .DS_Store
 Thumbs.db
 
 
-# ============================================
+
+# =============================================================================
 # 7. ARCHIVES ET EXPORTS
-# --------------------------------------------
-# Archives créées pour des backups, exports ou
-# distributions (tar, zip, etc.).
-# Elles ne sont pas nécessaires dans Git.
-# ============================================
+# -----------------------------------------------------------------------------
+# Archives créées pour des backups, exports ou distributions.
+# Elles ne doivent pas être versionnées.
+# =============================================================================
 *.tar
 *.tar.gz
 *.tgz
